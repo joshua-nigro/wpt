@@ -17,7 +17,17 @@
 
         function timeout()
         {
-            t.step(function(){ assert_equals(document.getElementById("testresult").innerHTML, "2134")});
+            t.step(function(){
+                var test_result = document.getElementById("testresult").innerHTML;
+                // Four scripts should have executed by this point.
+                assert_equals(test_result.length, 4, "Not all scripts have executed");
+                // Inline script '2' should come first
+                assert_equals(test_result[0], "2", "Inline script should be evaluated first, before defer async");
+                // Inline script '2' should come before inline script '3' and '4'.
+                assert_greater_than(test_result.indexOf("3"), test_result.indexOf("2"), "Inline script 2 executed in the incorrect order");
+                assert_greater_than(test_result.indexOf("4"), test_result.indexOf("3"), "Inline script 3 executed in the incorrect order");
+                assert_not_equals(test_result.indexOf("1"), -1, "Script 1 (defer async) has not executed");
+            });
             t.done();
         }
 

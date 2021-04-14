@@ -15,7 +15,9 @@
         <script type="text/javascript">
         var t = async_test();
         function test() {
-                assert_array_equals(eventOrder, ['external script #2', 'external script #1']);
+                // 'async' means 'execute when ready', ordering relative to defer is undefined.
+                assert_in_array('external script #1', eventOrder);
+                assert_in_array('external script #2', eventOrder);
                 t.done();
         }
         onload = t.step_func(test);
