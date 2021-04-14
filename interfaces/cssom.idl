@@ -1,12 +1,3 @@
-// GENERATED PREAMBLE - DO NOT EDIT
-// This preamble was added by webref for web-platform-tests.
-// CSSOMString is an implementation-defined type of either DOMString or
-// USVString in CSSOM: https://drafts.csswg.org/cssom/#cssomstring-type
-// For web-platform-tests, use DOMString because USVString has additional
-// requirements in type conversion and could result in spurious failures for
-// implementations that use DOMString.
-typedef DOMString CSSOMString;
-
 // GENERATED CONTENT - DO NOT EDIT
 // Content was automatically extracted by Reffy into webref
 // (https://github.com/w3c/webref)
@@ -143,6 +134,8 @@ interface mixin ElementCSSInlineStyle {
 HTMLElement includes ElementCSSInlineStyle;
 
 SVGElement includes ElementCSSInlineStyle;
+
+MathMLElement includes ElementCSSInlineStyle;
 
 partial interface Window {
   [NewObject] CSSStyleDeclaration getComputedStyle(Element elt, optional CSSOMString? pseudoElt);
