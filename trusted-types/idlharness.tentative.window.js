@@ -3,7 +3,7 @@
 
 idl_test(
     ['trusted-types'],
-    ['dom', 'html'],
+    ['html', 'dom'],
     idl_array => {
       idl_array.add_objects({
         TrustedTypePolicyFactory: ['window.trustedTypes'],
