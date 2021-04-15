@@ -140,6 +140,7 @@ dictionary AudioEncoderConfig {
   required DOMString codec;
   unsigned long sampleRate;
   unsigned long numberOfChannels;
+  unsigned long long bitrate;
 };
 
 dictionary VideoEncoderConfig {
@@ -263,6 +264,7 @@ dictionary VideoFrameInit {
   unsigned long long timestamp;
 };
 
+[Exposed=(Window,DedicatedWorker)]
 interface Plane {
   readonly attribute unsigned long stride;
   readonly attribute unsigned long rows;
